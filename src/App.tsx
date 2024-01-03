@@ -1,4 +1,5 @@
 import NavBar from "./components/NavBar";
+import SideBar from "./components/SideBar";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -12,7 +13,9 @@ function App() {
         </Col>
       </Row>
       <Row>
-        <Col className="red">Sidebar</Col>
+        <Col className="red">
+          <SideBar />
+        </Col>
         <Col className="green">Main</Col>
       </Row>
     </Container>

@@ -16,21 +16,36 @@ const NavBar = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link className={styles.PrimTextCol} href="#home">
+            <Nav.Link
+              className={`${styles.PrimTextCol} ${styles.SecHover}`}
+              href="#home"
+            >
               Schools
             </Nav.Link>
-            <Nav.Link className={styles.PrimTextCol} href="#link">
+            <Nav.Link
+              className={`${styles.PrimTextCol} ${styles.SecHover}`}
+              href="#link"
+            >
               Discussion
             </Nav.Link>
-            <Nav.Link className={styles.PrimTextCol} href="#link">
+            <Nav.Link
+              className={`${styles.PrimTextCol} ${styles.SecHover}`}
+              href="#link"
+            >
               Pre-Loved
             </Nav.Link>
           </Nav>
           <Nav className="ms-auto">
-            <Nav.Link className={styles.SecTextCol} href="#link">
+            <Nav.Link
+              className={`${styles.SecTextCol} ${styles.PrimHover}`}
+              href="#link"
+            >
               Login
             </Nav.Link>
-            <Nav.Link className={styles.SecTextCol} href="#link">
+            <Nav.Link
+              className={`${styles.SecTextCol} ${styles.PrimHover}`}
+              href="#link"
+            >
               Register
             </Nav.Link>
             {/* <NavDropdown title="Dropdown" id="basic-nav-dropdown">
