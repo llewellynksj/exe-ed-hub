@@ -19,6 +19,8 @@ const NavBar = () => {
             <Nav.Link href="#home">Schools</Nav.Link>
             <Nav.Link href="#link">Discussion</Nav.Link>
             <Nav.Link href="#link">Pre-Loved</Nav.Link>
+          </Nav>
+          <Nav className="ms-auto">
             <Nav.Link href="#link">Login</Nav.Link>
             <Nav.Link href="#link">Register</Nav.Link>
             {/* <NavDropdown title="Dropdown" id="basic-nav-dropdown">
