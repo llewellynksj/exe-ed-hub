@@ -1,5 +1,7 @@
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
+import Welcome from "./components/Welcome";
+import SchoolList from "./pages/schools/SchoolList";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -14,8 +16,12 @@ function App() {
       </Row>
       <Row>
         <Col className="green">
-          <Row>Schools Section</Row>
-          <Row>Welcome Section</Row>
+          <Row>
+            <SchoolList />
+          </Row>
+          <Row>
+            <Welcome />
+          </Row>
           <Row>Discussion Section</Row>
           <Row>Pre-Loved Section</Row>
         </Col>
