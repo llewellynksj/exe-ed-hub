@@ -13,7 +13,12 @@ function App() {
         </Col>
       </Row>
       <Row>
-        <Col className="green">Main</Col>
+        <Col className="green">
+          <Row>Schools Section</Row>
+          <Row>Welcome Section</Row>
+          <Row>Discussion Section</Row>
+          <Row>Pre-Loved Section</Row>
+        </Col>
       </Row>
       <Row>
         <Col>
