@@ -1,26 +1,21 @@
-import { Grid, GridItem, Show } from "@chakra-ui/react";
 import NavBar from "./components/NavBar";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 function App() {
   return (
-    <Grid
-      templateAreas={{
-        base: `"nav" "main"`,
-        lg: `"nav nav" "sidebar main"`,
-      }}
-    >
-      <GridItem area="nav">
-        <NavBar />
-      </GridItem>
-      <Show above="lg">
-        <GridItem area="sidebar" bg="blue">
-          Sidebar
-        </GridItem>
-      </Show>
-      <GridItem area="main" bg="green">
-        Main
-      </GridItem>
-    </Grid>
+    <Container fluid>
+      <Row>
+        <Col>
+          <NavBar />
+        </Col>
+      </Row>
+      <Row>
+        <Col className="red">Sidebar</Col>
+        <Col className="green">Main</Col>
+      </Row>
+    </Container>
   );
 }
 
