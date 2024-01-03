@@ -42,6 +42,7 @@ const NavBar = () => {
               >
                 Sixth Form/College
               </NavDropdown.Item>
+              <NavDropdown.Divider />
               <NavDropdown.Item
                 href="#action/3.3"
                 className={`${styles.PrimTextCol} ${styles.SecHover}`}
@@ -70,6 +71,7 @@ const NavBar = () => {
               >
                 Browse Topics
               </NavDropdown.Item>
+              <NavDropdown.Divider />
               <NavDropdown.Item
                 href="#action/3.3"
                 className={`${styles.PrimTextCol} ${styles.SecHover}`}
@@ -98,6 +100,7 @@ const NavBar = () => {
               >
                 Browse Categories
               </NavDropdown.Item>
+              <NavDropdown.Divider />
               <NavDropdown.Item
                 href="#action/3.3"
                 className={`${styles.PrimTextCol} ${styles.SecHover}`}
