@@ -10,7 +10,7 @@ const SchoolList = () => {
     <div className="px-4 m-4">
       <h1 className="text-center">Top Rated Schools</h1>
       <Container fluid className="px-4">
-        <Row className="justify-content-center row-cols-1 row-cols-sm-2 row-cols-lg-3">
+        <Row className="justify-content-center row-cols-1 row-cols-md-2 row-cols-lg-3 overflow-hidden">
           <Col className="my-2">
             <Card className="mx-auto" style={{ width: "80%" }}>
               <Card.Img variant="top" src={SchoolImage} />
