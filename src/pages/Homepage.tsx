@@ -18,7 +18,12 @@ function Homepage() {
 
       <SchoolList />
 
-      <Button text="Add a Review" onClick={() => console.log("clicked")} />
+      <Button
+        text="Add a Review"
+        onClick={() => console.log("clicked")}
+        textColor="bg-font"
+        bgColor="secondary-bg"
+      />
 
       <Welcome />
 
