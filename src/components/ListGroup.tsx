@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Container } from "react-bootstrap";
 import "../styles/ListGroup.module.css";
 
 // ListGroup code adapted from Code with Mosh: http://tinyurl.com/msvtzhs
@@ -13,9 +14,9 @@ function ListGroup({ items, title, onSelectItem }: Props) {
   const [selectedIndex, setSelectedIndex] = useState(-1);
 
   return (
-    <>
+    <Container fluid className="overflow-hidden px-4">
       <h1>{title}</h1>
-      <ul className="list-group overflow-hidden">
+      <ul className="list-group">
         {items.map((item, index) => (
           <li
             className={
@@ -33,7 +34,7 @@ function ListGroup({ items, title, onSelectItem }: Props) {
           </li>
         ))}
       </ul>
-    </>
+    </Container>
   );
 }
 

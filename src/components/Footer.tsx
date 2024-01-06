@@ -3,7 +3,7 @@ import styles from "../styles/Footer.module.css";
 
 const Footer = () => {
   return (
-    <Container fluid>
+    <Container fluid className="overflow-hidden px-4">
       <footer
         className={`d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top`}
       >
