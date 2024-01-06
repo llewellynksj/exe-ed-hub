@@ -7,12 +7,12 @@ import SchoolImage from "../../assets/school.jpg";
 
 const SchoolList = () => {
   return (
-    <div>
-      <h1>Top Rated Schools...</h1>
-      <Container fluid>
-        <Row>
-          <Col>
-            <Card style={{ width: "18rem" }}>
+    <div className="px-4 m-4">
+      <h1 className="text-center">Top Rated Schools</h1>
+      <Container fluid className="px-4">
+        <Row className="justify-content-center row-cols-1 row-cols-sm-2 row-cols-lg-3">
+          <Col className="my-2">
+            <Card className="mx-auto" style={{ width: "80%" }}>
               <Card.Img variant="top" src={SchoolImage} />
               <Card.Body>
                 <Card.Title>Card Title</Card.Title>
@@ -24,8 +24,8 @@ const SchoolList = () => {
               </Card.Body>
             </Card>
           </Col>
-          <Col>
-            <Card style={{ width: "18rem" }}>
+          <Col className="my-2">
+            <Card className="mx-auto" style={{ width: "80%" }}>
               <Card.Img variant="top" src={SchoolImage} />
               <Card.Body>
                 <Card.Title>Card Title</Card.Title>
@@ -37,8 +37,8 @@ const SchoolList = () => {
               </Card.Body>
             </Card>
           </Col>
-          <Col>
-            <Card style={{ width: "18rem" }}>
+          <Col className="my-2">
+            <Card className="mx-auto" style={{ width: "80%" }}>
               <Card.Img variant="top" src={SchoolImage} />
               <Card.Body>
                 <Card.Title>Card Title</Card.Title>
