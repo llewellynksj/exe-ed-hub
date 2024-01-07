@@ -4,10 +4,9 @@ import Welcome from "../components/Welcome";
 import ListGroup from "../components/ListGroup";
 import SchoolListFeed from "./schools/SchoolListFeed";
 import Button from "../components/Button";
+import LoginForm from "./auth/LoginForm";
 
 function Homepage() {
-  let items = ["item1", "item2", "item3"];
-
   const handleSelectItem = (item: string) => {
     console.log(item);
   };
@@ -27,11 +26,7 @@ function Homepage() {
 
       <Welcome />
 
-      <ListGroup
-        items={items}
-        title="The List"
-        onSelectItem={handleSelectItem}
-      />
+      <LoginForm />
 
       <Footer />
     </>
