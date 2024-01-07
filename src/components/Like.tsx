@@ -14,7 +14,7 @@ const Like = ({ onClick }: Props) => {
     onClick();
   };
 
-  if (liked) return <BiSolidLike color="#ff6b81" size={20} onClick={toggle} />;
+  if (liked) return <BiSolidLike color="#0097B3" size={20} onClick={toggle} />;
   return <BiLike size={20} onClick={toggle} />;
 };
 
