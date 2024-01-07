@@ -1,7 +1,7 @@
 import Button from "../../components/Button";
 import { Form } from "react-bootstrap";
 
-const SignUpForm = () => {
+const RegisterForm = () => {
   return (
     <Form className="overflow-hidden px-4">
       <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -40,4 +40,4 @@ const SignUpForm = () => {
   );
 };
 
-export default SignUpForm;
+export default RegisterForm;
