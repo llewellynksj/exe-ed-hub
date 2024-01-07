@@ -1,3 +1,4 @@
+import "./api/axiosDefaults";
 import Homepage from "./pages/Homepage";
 
 function App() {

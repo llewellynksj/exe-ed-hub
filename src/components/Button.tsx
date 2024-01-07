@@ -17,7 +17,7 @@ interface Props {
   onClick: () => void;
 }
 
-function Button({ text, textColor, bgColor, onClick }: Props) {
+const Button = ({ text, textColor, bgColor, onClick }: Props) => {
   return (
     <>
       <Container fluid className="d-flex justify-content-center">
@@ -31,6 +31,6 @@ function Button({ text, textColor, bgColor, onClick }: Props) {
       </Container>
     </>
   );
-}
+};
 
 export default Button;
