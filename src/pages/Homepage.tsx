@@ -2,7 +2,7 @@ import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import Welcome from "../components/Welcome";
 import ListGroup from "../components/ListGroup";
-import SchoolList from "./schools/SchoolList";
+import SchoolListFeed from "./schools/SchoolListFeed";
 import Button from "../components/Button";
 
 function Homepage() {
@@ -16,7 +16,7 @@ function Homepage() {
     <>
       <NavBar />
 
-      <SchoolList />
+      <SchoolListFeed />
 
       <Button
         text="Add a Review"

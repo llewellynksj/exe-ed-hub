@@ -5,7 +5,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import SchoolImage from "../../assets/school.jpg";
 
-const SchoolList = () => {
+const SchoolListFeed = () => {
   return (
     <div className="px-4 m-4">
       <h1 className="text-center">Top Rated Schools</h1>
@@ -56,4 +56,4 @@ const SchoolList = () => {
   );
 };
 
-export default SchoolList;
+export default SchoolListFeed;
