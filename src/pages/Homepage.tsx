@@ -2,6 +2,7 @@ import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import Welcome from "../components/Welcome";
 import Button from "../components/Button";
+import Like from "../components/Like";
 
 function Homepage() {
   return (
@@ -15,6 +16,8 @@ function Homepage() {
       >
         Add Review
       </Button>
+
+      <Like onClick={() => console.log("Liked!")} />
 
       <Welcome />
 
