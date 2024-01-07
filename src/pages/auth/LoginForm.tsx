@@ -15,11 +15,12 @@ function LoginForm() {
       </Form.Group>
 
       <Button
-        text="Login"
         onClick={() => console.log("clicked")}
         textColor="bg-font"
         bgColor="secondary-bg"
-      />
+      >
+        Login
+      </Button>
     </Form>
   );
 }

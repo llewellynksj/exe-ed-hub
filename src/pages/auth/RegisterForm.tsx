@@ -31,11 +31,12 @@ const RegisterForm = () => {
       </Form.Group>
 
       <Button
-        text="Register"
         onClick={() => console.log("clicked")}
         textColor="bg-font"
         bgColor="secondary-bg"
-      />
+      >
+        Register
+      </Button>
     </Form>
   );
 };
