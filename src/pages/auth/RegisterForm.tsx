@@ -1,89 +1,60 @@
-import { ChangeEvent, FormEvent } from "react";
 import Button from "../../components/Button";
-import { Form, Alert } from "react-bootstrap";
-import { useState } from "react";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { FieldValues, useForm } from "react-hook-form";
 
 const RegisterForm = () => {
-  const [registerData, setRegisterData] = useState({
-    username: "",
-    password1: "",
-    password2: "",
-  });
-  const { username, password1, password2 } = registerData;
+  const { register, handleSubmit } = useForm();
 
-  const navigate = useNavigate();
-
-  const [errors, setErrors] = useState({
-    username: [],
-    password1: [],
-    password2: [],
-  });
-
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setRegisterData({ ...registerData, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    try {
-      await axios.post("dj-rest-auth/registration/", registerData);
-      navigate("/login");
-    } catch (err: any) {
-      setErrors(err.response?.data);
-    }
-  };
+  const onSubmit = (data: FieldValues) => console.log(data);
 
   return (
-    <Form className="overflow-hidden p-4" onSubmit={handleSubmit}>
-      <Form.Group className="mb-3" controlId="username">
-        <Form.Label className="d-none">Username</Form.Label>
-        <Form.Control
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <div className="mb-3">
+        <label htmlFor="username" className="form-label">
+          Username
+        </label>
+        <input
+          id="username"
           type="text"
-          name="username"
-          placeholder="Username"
-          value={username}
-          onChange={handleChange}
+          className="form-control"
+          {...register("username")}
         />
-      </Form.Group>
-      {errors.username?.map((message, idx) => (
-        <Alert variant="warning" key={idx}>
-          {message}
-        </Alert>
-      ))}
+      </div>
 
-      <Form.Group className="mb-3" controlId="password1">
-        <Form.Label className="d-none">Password</Form.Label>
-        <Form.Control
+      <div>
+        <label htmlFor="password1" className="form-label">
+          Password
+        </label>
+        <input
+          id="password1"
           type="password"
-          name="password1"
-          placeholder="Password"
-          value={password1}
-          onChange={handleChange}
+          className="form-control"
+          {...register("password1")}
         />
-      </Form.Group>
+      </div>
 
-      <Form.Group className="mb-3" controlId="password2">
-        <Form.Label className="d-none">Confirm Password</Form.Label>
-        <Form.Control
+      <div>
+        <label htmlFor="password2" className="form-label">
+          Confirm Password
+        </label>
+        <input
+          id="password2"
           type="password"
-          name="password2"
-          placeholder="Confirm Password"
-          value={password2}
-          onChange={handleChange}
+          className="form-control"
+          {...register("password2")}
         />
-      </Form.Group>
+      </div>
 
-      <Button
-        onClick={() => console.log("clicked")}
-        textColor="bg-font"
-        bgColor="secondary-bg"
-        type="submit"
-      >
-        Register
-      </Button>
-    </Form>
+      <div>
+        <Button
+          onClick={() => console.log("submitted2")}
+          textColor="bg-font"
+          bgColor="secondary-bg"
+          type="submit"
+        >
+          Submit
+        </Button>
+      </div>
+    </form>
   );
 };
 
