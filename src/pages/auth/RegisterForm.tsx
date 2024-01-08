@@ -1,20 +1,42 @@
+import { ChangeEvent } from "react";
 import Button from "../../components/Button";
-import Modal from "../../components/Modal";
-import CodeOfConduct from "../../components/CodeOfConduct";
 import { Form } from "react-bootstrap";
 import { useState } from "react";
 
 const RegisterForm = () => {
+  const [registerData, setRegisterData] = useState({
+    username: "",
+    password1: "",
+    password2: "",
+  });
+  const { username, password1, password2 } = registerData;
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setRegisterData({ ...registerData, [e.target.name]: e.target.value });
+  };
+
   return (
     <Form className="overflow-hidden px-4">
       <Form.Group className="mb-3" controlId="username">
-        <Form.Label>Username</Form.Label>
-        <Form.Control type="text" name="username" placeholder="Username" />
+        <Form.Label className="d-none">Username</Form.Label>
+        <Form.Control
+          type="text"
+          name="username"
+          placeholder="Username"
+          value={username}
+          onChange={handleChange}
+        />
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="password1">
         <Form.Label className="d-none">Password</Form.Label>
-        <Form.Control type="password" name="password1" placeholder="Password" />
+        <Form.Control
+          type="password"
+          name="password1"
+          placeholder="Password"
+          value={password1}
+          onChange={handleChange}
+        />
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="password2">
@@ -22,7 +44,9 @@ const RegisterForm = () => {
         <Form.Control
           type="password"
           name="password2"
-          placeholder="Repeat Password"
+          placeholder="Confirm Password"
+          value={password2}
+          onChange={handleChange}
         />
       </Form.Group>
 
