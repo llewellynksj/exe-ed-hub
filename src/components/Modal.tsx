@@ -2,6 +2,9 @@ import { useRef, MouseEvent } from "react";
 import { IoCloseCircleOutline } from "react-icons/io5";
 import styles from "../styles/Modal.module.css";
 
+// Code adapted from 'HelloJS - Modal in React application':
+// https://www.youtube.com/watch?v=7bn5ykv5bjc
+
 interface Props {
   isOpen: boolean;
   children: React.ReactNode;
