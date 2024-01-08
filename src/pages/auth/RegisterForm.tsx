@@ -3,6 +3,8 @@ import { FieldValues, useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 
+// Code adapted from Code with Mosh 'React 18 for beginners': http://tinyurl.com/3c6bfdpx
+
 const schema = z
   .object({
     username: z
