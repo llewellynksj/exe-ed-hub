@@ -1,5 +1,3 @@
-import React from "react";
-
 const CodeOfConduct = () => {
   return (
     <div className="overflow-hidden px-4">
