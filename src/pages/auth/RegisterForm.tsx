@@ -36,7 +36,7 @@ const RegisterForm = () => {
   };
 
   return (
-    <Form className="overflow-hidden px-4" onSubmit={handleSubmit}>
+    <Form className="overflow-hidden p-4" onSubmit={handleSubmit}>
       <Form.Group className="mb-3" controlId="username">
         <Form.Label className="d-none">Username</Form.Label>
         <Form.Control

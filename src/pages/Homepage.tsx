@@ -3,8 +3,6 @@ import Footer from "../components/Footer";
 import Welcome from "../components/Welcome";
 import Button from "../components/Button";
 import Like from "../components/Like";
-import Modal from "../components/Modal";
-import CodeOfConduct from "../components/CodeOfConduct";
 import { useState } from "react";
 
 function Homepage() {
