@@ -1,8 +1,29 @@
 import Button from "../../components/Button";
 import { FieldValues, useForm } from "react-hook-form";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+
+const schema = z
+  .object({
+    username: z
+      .string()
+      .min(3, { message: "Username must be at least 3 characters long" }),
+    password1: z.string().min(6),
+    password2: z.string().min(6),
+  })
+  .refine((data) => data.password1 === data.password2, {
+    message: "Passwords must match!",
+    path: ["password2"],
+  });
+
+type FormData = z.infer<typeof schema>;
 
 const RegisterForm = () => {
-  const { register, handleSubmit } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormData>({ resolver: zodResolver(schema) });
 
   const onSubmit = (data: FieldValues) => console.log(data);
 
@@ -18,6 +39,9 @@ const RegisterForm = () => {
           className="form-control"
           {...register("username")}
         />
+        {errors.username && (
+          <p className="text-danger">{errors.username.message}</p>
+        )}
       </div>
 
       <div>
@@ -30,6 +54,9 @@ const RegisterForm = () => {
           className="form-control"
           {...register("password1")}
         />
+        {errors.password1 && (
+          <p className="text-danger">{errors.password1.message}</p>
+        )}
       </div>
 
       <div>
@@ -42,6 +69,9 @@ const RegisterForm = () => {
           className="form-control"
           {...register("password2")}
         />
+        {errors.password2 && (
+          <p className="text-danger">{errors.password2.message}</p>
+        )}
       </div>
 
       <div>
