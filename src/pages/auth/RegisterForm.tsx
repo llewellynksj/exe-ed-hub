@@ -8,7 +8,9 @@ const schema = z
     username: z
       .string()
       .min(3, { message: "Username must be at least 3 characters long" }),
-    password1: z.string().min(6),
+    password1: z
+      .string()
+      .min(6, { message: "Password must be at least 6 characters long" }),
     password2: z.string().min(6),
   })
   .refine((data) => data.password1 === data.password2, {
