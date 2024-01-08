@@ -1,4 +1,5 @@
 import { useRef, MouseEvent } from "react";
+import { IoCloseCircleOutline } from "react-icons/io5";
 import styles from "../styles/Modal.module.css";
 
 interface Props {
@@ -17,16 +18,18 @@ const Modal = ({ children, onClose, isOpen }: Props) => {
   };
 
   return isOpen ? (
-    <div className={styles.modal}>
+    <div className={styles.Modal_section}>
       <div
         ref={outsideRef}
-        className={styles.modal__overlay}
+        className={styles.Modal_bg}
         onClick={handleClickOutside}
       >
-        <div className={styles.modal__box}>
-          <button className={styles.modal__close} onClick={onClose}>
-            x
-          </button>
+        <div className={styles.Modal}>
+          <IoCloseCircleOutline
+            size={30}
+            className={styles.Modal_close}
+            onClick={onClose}
+          />
           {children}
         </div>
       </div>

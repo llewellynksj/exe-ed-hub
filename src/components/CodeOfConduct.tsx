@@ -1,6 +1,6 @@
 const CodeOfConduct = () => {
   return (
-    <div className="overflow-hidden px-4">
+    <div className="overflow-hidden p-4">
       <h1>Code of Conduct</h1>
       <ul>
         <li>
