@@ -3,6 +3,7 @@ import { Container } from "react-bootstrap";
 
 interface Props {
   children: React.ReactNode;
+  type?: "button" | "submit" | "reset";
   textColor?:
     | "bg-font"
     | "primary-font"
@@ -18,12 +19,18 @@ interface Props {
   onClick: () => void;
 }
 
-const Button = ({ children, textColor, bgColor, onClick }: Props) => {
+const Button = ({
+  children,
+  textColor,
+  bgColor,
+  onClick,
+  type = "button",
+}: Props) => {
   return (
     <>
       <Container fluid className="d-flex justify-content-center">
         <button
-          type="button"
+          type={type}
           className={textColor + " " + bgColor}
           onClick={onClick}
         >

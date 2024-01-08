@@ -1,6 +1,6 @@
 import { ChangeEvent, FormEvent } from "react";
 import Button from "../../components/Button";
-import { Form } from "react-bootstrap";
+import { Form, Alert } from "react-bootstrap";
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -15,6 +15,12 @@ const RegisterForm = () => {
 
   const navigate = useNavigate();
 
+  const [errors, setErrors] = useState({
+    username: [],
+    password1: [],
+    password2: [],
+  });
+
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setRegisterData({ ...registerData, [e.target.name]: e.target.value });
   };
@@ -24,7 +30,9 @@ const RegisterForm = () => {
     try {
       await axios.post("dj-rest-auth/registration/", registerData);
       navigate("/login");
-    } catch (err) {}
+    } catch (err: any) {
+      setErrors(err.response?.data);
+    }
   };
 
   return (
@@ -39,6 +47,11 @@ const RegisterForm = () => {
           onChange={handleChange}
         />
       </Form.Group>
+      {errors.username?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
 
       <Form.Group className="mb-3" controlId="password1">
         <Form.Label className="d-none">Password</Form.Label>
@@ -66,6 +79,7 @@ const RegisterForm = () => {
         onClick={() => console.log("clicked")}
         textColor="bg-font"
         bgColor="secondary-bg"
+        type="submit"
       >
         Register
       </Button>
