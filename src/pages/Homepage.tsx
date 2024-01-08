@@ -8,10 +8,6 @@ import CodeOfConduct from "../components/CodeOfConduct";
 import { useState } from "react";
 
 function Homepage() {
-  const [openModal, setOpenModal] = useState(false);
-
-  const toggleModal = () => setOpenModal(!openModal);
-
   return (
     <>
       <NavBar />
@@ -27,14 +23,6 @@ function Homepage() {
       <Like onClick={() => console.log("Liked!")} />
 
       <Welcome />
-
-      <Button onClick={toggleModal} textColor="bg-font" bgColor="secondary-bg">
-        Open Modal
-      </Button>
-
-      <Modal isOpen={openModal} onClose={toggleModal}>
-        <CodeOfConduct />
-      </Modal>
 
       <Footer />
     </>
