@@ -33,15 +33,22 @@ function LoginForm() {
 
   const onSubmit = async (loginData: FieldValues) => {
     try {
-      const { data } = await axios.post("/dj-rest-auth/login/", loginData);
+      const { data } = await axios.post("/dj-rest-auth/login/", {
+        username: loginData.username,
+        password: loginData.password,
+      });
       setCurrentUser(data.user);
       navigate("/");
     } catch (err) {
       if (axios.isAxiosError(err)) {
         const axiosError = err as AxiosError;
-        setError(axiosError.message);
+        if (axiosError.response?.status === 401) {
+          setError("Invalid username or password");
+        } else {
+          setError("An error occurred. Please try again later.");
+        }
       } else {
-        setError("An error occurred. Please try again later.");
+        setError("An unexpected error occurred.");
       }
     }
   };

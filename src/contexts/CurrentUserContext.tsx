@@ -56,30 +56,9 @@ export const CurrentUserProvider: React.FC<CurrentUserProviderProps> = ({
   }, []);
 
   useMemo(() => {
-    axiosReq.interceptors.request.use(
-      async (config) => {
-        try {
-          await axios.post("/dj-rest-auth/token/refresh/");
-        } catch (err) {
-          setCurrentUser((prevCurrentUser) => {
-            if (prevCurrentUser) {
-              navigate("/login");
-            }
-            return null;
-          });
-          return config;
-        }
-        return config;
-      },
-      (err) => {
-        return Promise.reject(err);
-      }
-    );
-
-    axiosRes.interceptors.response.use(
-      (response) => response,
-      async (err) => {
-        if (err.response?.status === 401) {
+    if (currentUser) {
+      axiosReq.interceptors.request.use(
+        async (config) => {
           try {
             await axios.post("/dj-rest-auth/token/refresh/");
           } catch (err) {
@@ -89,12 +68,35 @@ export const CurrentUserProvider: React.FC<CurrentUserProviderProps> = ({
               }
               return null;
             });
+            return config;
           }
-          return axios(err.config);
+          return config;
+        },
+        (err) => {
+          return Promise.reject(err);
         }
-        return Promise.reject(err);
-      }
-    );
+      );
+
+      axiosRes.interceptors.response.use(
+        (response) => response,
+        async (err) => {
+          if (err.response?.status === 401) {
+            try {
+              await axios.post("/dj-rest-auth/token/refresh/");
+            } catch (err) {
+              setCurrentUser((prevCurrentUser) => {
+                if (prevCurrentUser) {
+                  navigate("/login");
+                }
+                return null;
+              });
+            }
+            return axios(err.config);
+          }
+          return Promise.reject(err);
+        }
+      );
+    }
   }, [navigate]);
 
   return (
