@@ -1,11 +1,12 @@
 import Button from "../../components/Button";
 import { useNavigate } from "react-router-dom";
-import { FormEvent, useState } from "react";
+import { useState } from "react";
 import { useForm, FieldValues } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import axios from "axios";
 import { AxiosError } from "axios";
+import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
 
 const schema = z.object({
   username: z
@@ -19,6 +20,8 @@ const schema = z.object({
 type FormData = z.infer<typeof schema>;
 
 function LoginForm() {
+  const setCurrentUser = useSetCurrentUser();
+
   const {
     register,
     handleSubmit,
@@ -28,9 +31,10 @@ function LoginForm() {
   const navigate = useNavigate();
   const [error, setError] = useState("");
 
-  const onSubmit = async (data: FieldValues) => {
+  const onSubmit = async (loginData: FieldValues) => {
     try {
-      await axios.post("/dj-rest-auth/login/", data);
+      const { data } = await axios.post("/dj-rest-auth/login/", loginData);
+      setCurrentUser(data.user);
       navigate("/");
     } catch (err) {
       if (axios.isAxiosError(err)) {
