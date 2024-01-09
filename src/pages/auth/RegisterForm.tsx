@@ -2,6 +2,10 @@ import Button from "../../components/Button";
 import { FieldValues, useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { AxiosError } from "axios";
 
 // Code adapted from Code with Mosh 'React 18 for beginners': http://tinyurl.com/3c6bfdpx
 
@@ -29,7 +33,18 @@ const RegisterForm = () => {
     formState: { errors },
   } = useForm<FormData>({ resolver: zodResolver(schema) });
 
-  const onSubmit = (data: FieldValues) => console.log(data);
+  const navigate = useNavigate();
+  const [error, setError] = useState("");
+
+  const onSubmit = (data: FieldValues) => {
+    const newUser = data;
+    try {
+      axios.post("/dj-rest-auth/registration/", newUser);
+      navigate("/login");
+    } catch (err) {
+      setError((err as AxiosError).message);
+    }
+  };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -87,6 +102,7 @@ const RegisterForm = () => {
         >
           Submit
         </Button>
+        {error && <p className="text-danger">{error}</p>}
       </div>
     </form>
   );
